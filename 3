@@ -1,0 +1,27 @@
+#!/bin/bash
+mkdir -p /tmp/rom
+cd /tmp/rom
+
+# Repo init and sync
+repo init -q --no-repo-verify --depth=1 -u git://github.com/ProjectSakura/android.git -b 11 -g default,-device,-mips,-darwin,-notdefault
+
+# Start repo sync
+repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
+
+# Purge repo
+rm -rf .repo
+
+# Clone Device Sources
+git clone https://github.com/PrajjuS/device_xiaomi_vince --single-branch -b CI device/xiaomi/vince
+git clone https://github.com/PrajjuS/vendor_xiaomi_vince --single-branch -b sakura-11 vendor/xiaomi/vince
+git clone https://github.com/Blacksuan19/kernel_dark_ages_vince.git --single-branch -b darky kernel/xiaomi/vince
+
+# Clone Hals
+rm -rf hardware/qcom-caf/msm8996
+git clone https://gitlab.com/PrajjuS/hardware_qcom_audio.git --single-branch -b r11.0 hardware/qcom-caf/msm8996/audio
+git clone https://gitlab.com/PrajjuS/hardware_qcom_display.git --single-branch -b r11.0 hardware/qcom-caf/msm8996/display
+git clone https://gitlab.com/PrajjuS/hardware_qcom_media.git --single-branch -b r11.0 hardware/qcom-caf/msm8996/media
+
+# Miscellaneous Things
+rm -rf hardware/qcom-caf/wlan && git clone https://android.googlesource.com/platform/hardware/qcom/wlan hardware/qcom-caf/wlan
+cd kernel/xiaomi/vince && git revert fec013b9f5bb70c1e51285aa6e042f21f4298447 --no-edit && cd ../../..

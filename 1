@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Lets see machine specifications and environments
+df -h
+free -h
+nproc
+cat /etc/os*
+env
+
+# Install Extra Packages
+cd /tmp
+sudo curl https://raw.githubusercontent.com/fabianonline/telegram.sh/master/telegram -so  /home/builder/bin/telegram
+sudo chmod a+x /home/builder/bin/telegram
+
+# Fix TimeZone
+sudo ln -snf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+
+# Setup Configs
+mkdir -p ~/.config/rclone
+echo "$rclone_config" > ~/.config/rclone/rclone.conf
+echo "$tg_auth" > ~/.telegram.sh
+
+# Configure Git
+git config --global color.ui true
+git config --global user.name "TheGhoulEater"
+git config --global user.email "ghouleater00@gmail.com"
+
+# Notify In telegram
+telegram -M "*PROJECTSAKURA ROM Compile Status*: \`TRIGGERED!\`.
+*Triggered at*:- \`$(date)\`."

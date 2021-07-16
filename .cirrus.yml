@@ -18,8 +18,8 @@ task:
 #      - ./2
     source_sync_script:
       - ./3
-    ccache_monitor_script:
-      - ./4
+#    ccache_monitor_script:
+#      - ./4
     rum_build_script:
       - ./5
 #    send_rum_script:

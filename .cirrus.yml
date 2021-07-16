@@ -14,8 +14,8 @@ task:
       memory: 32G 
     start_process_script:
       - ./1
-#    ccache down_script:
-#      - ./2
+    ccache down_script:
+      - ./2
     source_sync_script:
       - ./3
 #    ccache_monitor_script:

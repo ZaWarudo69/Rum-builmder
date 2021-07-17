@@ -10,6 +10,11 @@ build_start=$(date +"%s")
 #
 . build/envsetup.sh
 lunch lineage_vince-user
+export SAKURA_BUILD_TYPE=gapps
+export SAKURA_BUILD_TYPE=microg
+export TARGET_USES_BLUR=true
+export SAKURA_LAWNCHAIR=true
+export EXTRA_FOD_ANIMATIONS=true
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1

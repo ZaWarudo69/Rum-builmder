@@ -14,15 +14,15 @@ task:
       memory: 32G 
     start_process_script:
       - ./1
-    ccache down_script:
+    download_ccache_background_script:
       - ./2
     source_sync_script:
       - ./3
-#    ccache_monitor_script:
-#      - ./4
+    monitor_ccache_background_script:
+      - ./4
     rum_build_script:
       - ./5
-#    send_rum_script:
-#      - ./6
-    ccache_up_script:
+    send_rum_script:
+      - ./6
+    upload_ccache_script:
       - ./7

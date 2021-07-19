@@ -25,5 +25,5 @@ telegram -M "*PROJECTSAKURA ROM Compile Status*: \`FAILED!\`
 *Compile Time*: \`$((build_time / 3600)) hour(s), $((build_time % 3600 / 60)) minute(s) and $((build_time % 60)) seconds\`.
 *CCache Stats*:-
 \`$(ccache -s | sed -n -e "6,9 p" -e "9 q")\`"
-telegram -f logs.txt "*Here are the logs.*"
+telegram -M -f logs.txt "*Here are the logs.*"
 fi

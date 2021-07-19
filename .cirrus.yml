@@ -22,7 +22,7 @@ task:
       - ./4
     rum_build_script:
       - ./5
-    send_rum_script:
-      - ./6
+   # send_rum_script:
+   #   - ./6
     upload_ccache_script:
       - ./7

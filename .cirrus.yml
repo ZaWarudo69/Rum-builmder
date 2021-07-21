@@ -14,8 +14,8 @@ task:
       memory: 32G 
     start_process_script:
       - ./1
-    download_ccache_background_script:
-      - ./2
+  #  download_ccache_background_script:
+  #    - ./2
     source_sync_script:
       - ./3
     monitor_ccache_background_script:

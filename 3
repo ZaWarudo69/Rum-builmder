@@ -3,7 +3,7 @@ mkdir -p /tmp/rom
 cd /tmp/rom
 
 # Repo init and sync
-repo init -q --no-repo-verify --depth=1 -u git://github.com/ProjectSakura/android.git -b 11 -g default,-device,-mips,-darwin,-notdefault
+repo init -q --no-repo-verify --depth=1 -u https://github.com/Octavi-OS/platform_manifest.git -b 11 -g default,-device,-mips,-darwin,-notdefault
 
 # Start repo sync
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
@@ -13,16 +13,13 @@ repo sync -j1 --fail-fast
 rm -rf .repo
 
 # Clone Device Sources
-git clone https://github.com/PrajjuS/device_xiaomi_vince --single-branch -b CI device/xiaomi/vince
-git clone https://github.com/PrajjuS/vendor_xiaomi_vince --single-branch -b sakura-11 vendor/xiaomi/vince
-git clone https://github.com/Blacksuan19/kernel_dark_ages_vince.git --single-branch -b darky kernel/xiaomi/vince
+git clone --depth=1 https://github.com/Suraj-Sangwan/device_oneplus_fajita.git device/oneplus/fajita
+git clone --depth=1 https://github.com/Suraj-Sangwan/device_oneplus_sdm845-common.git device/oneplus/sdm845-common
+git clone --depth=1 https://github.com/Suraj-Sangwan/vendor_oneplus.git vendor/oneplus
+git clone --depth=1 https://github.com/Suraj-Sangwan/device_oneplus_common.git device/oneplus/common
+git clone --depth=1 https://github.com/Suraj-Sangwan/kernel_oneplus_sdm845.git kernel/oneplus/sdm845
+git clone --depth=1 https://github.com/Suraj-Sangwan/vendor_addons_oneplus_apps.git vendor/addons/oneplus/apps
 
-# Clone Hals
-rm -rf hardware/qcom-caf/msm8996
-git clone https://gitlab.com/PrajjuS/hardware_qcom_audio.git --single-branch -b r11.0 hardware/qcom-caf/msm8996/audio
-git clone https://gitlab.com/PrajjuS/hardware_qcom_display.git --single-branch -b r11.0 hardware/qcom-caf/msm8996/display
-git clone https://gitlab.com/PrajjuS/hardware_qcom_media.git --single-branch -b r11.0 hardware/qcom-caf/msm8996/media
-
-# Miscellaneous Things
-rm -rf hardware/qcom-caf/wlan && git clone https://android.googlesource.com/platform/hardware/qcom/wlan hardware/qcom-caf/wlan
-cd kernel/xiaomi/vince && git revert fec013b9f5bb70c1e51285aa6e042f21f4298447 --no-edit && cd ../../..
+#Using own TouchGestures repo
+rm -rf packages/apps/TouchGestures
+git clone https://github.com/Suraj-Sangwan/packages_apps_TouchGestures.git packages/apps/TouchGestures

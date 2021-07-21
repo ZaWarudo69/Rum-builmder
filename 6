@@ -2,25 +2,25 @@
 #
 cd /tmp/rom
 build_time=$(cat ~/.build_time)
-build_name=$(ls /tmp/rom/out/target/product/vince/ | grep -m1 -E 'vince|.zip')
-msd=$(cat /tmp/rom/out/target/product/vince/$build_name.md5sum)
+build_name=$(ls /tmp/rom/out/target/product/fajita/ | grep -m1 -E 'fajita|.zip')
+msd=$(cat /tmp/rom/out/target/product/fajita/$build_name.md5sum)
 
 # Push Compiled ROM if available
-if [ -f /tmp/rom/out/target/product/vince/${build_name} ]; then
+if [ -f /tmp/rom/out/target/product/fajita/${build_name} ]; then
 
-rclone copy /tmp/rom/out/target/product/vince/$build_name vince:/ProjectSakura/ -P
+rclone copy /tmp/rom/out/target/product/fajita/$build_name fajita:/OctaviOS/ -P
 
-telegram -M "*PROJECTSAKURA ROM Compile Status*: \`FINISHED!\`
+telegram -M "*OCTAVI OS Compile Status*: \`FINISHED!\`
 *Finished at*:- \`$(date)\`.
 *Compile Time*: \`$((build_time / 3600)) hour(s), $((build_time % 3600 / 60)) minute(s) and $((build_time % 60)) seconds\`.
-*Download Link*: [$build_name](https://vince.prajwals.workers.dev/ProjectSakura/$build_name)
+*Download Link*: [$build_name](https://hacks_on.susanoo-burner.workers.dev/OctaviOS/$build_name)
 *Md5sum*: \`$(md5)\`
 *CCache Stats*:-
 \`$(ccache -s | sed -n -e "6,9 p" -e "9 q")\`"
 
 else
 
-telegram -M "*PROJECTSAKURA ROM Compile Status*: \`FAILED!\`
+telegram -M "*OCTAVI OS Compile Status*: \`FAILED!\`
 *Failed at*:- \`$(date)\`.
 *Compile Time*: \`$((build_time / 3600)) hour(s), $((build_time % 3600 / 60)) minute(s) and $((build_time % 60)) seconds\`.
 *CCache Stats*:-

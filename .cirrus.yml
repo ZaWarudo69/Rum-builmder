@@ -2,8 +2,8 @@ env:
     CIRRUS_CLONE_DEPTH: 1
     CIRRUS_WORKING_DIR: "/tmp/ci" 
    
-    rclone_config: "ENCRYPTED[4d0278a2adf24e5d7f550ef9f2ec312ffea508a11a777aefc628f18f539e10d406a42096fbf30a6722a09c52085cc06d]"
-    tg_auth: "ENCRYPTED[fc6f68050f9cddb2d95b8e4805526041b5a661f3ed8f7ffbaf8c88f8bb869e9dfbb22c01ec87e825eceeda39badad397]"
+    rclone_config: "ENCRYPTED[65e84d4b2f2235613a840d46e162163eca0377c43020fe09a5b59877a8862e939ce0f251c93900744d419c71fce12e9b]"
+    tg_auth: "ENCRYPTED[040d3bded4d45f269aaeb31ce0b1906307b894b840fb5b39adf761a4fa6a7d6c8fb636b24a76d6b3d428f91d664a972a]"
     
 task:
     name: Kaneki Builder 

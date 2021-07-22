@@ -7,7 +7,7 @@ env:
     
 task:
     name: Kaneki Builder 
-    timeout_in: 140m 
+    timeout_in: 120m 
     container:
       dockerfile: Dockerfile 
       cpu: 8 
@@ -22,7 +22,7 @@ task:
       - ./4
     rum_build_script:
       - ./5
-    send_rum_script:
-      - ./6
-#    upload_ccache_script:
-#      - ./7
+ #   send_rum_script:
+ #     - ./6
+    upload_ccache_script:
+      - ./7

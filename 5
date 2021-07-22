@@ -26,7 +26,7 @@ ccache -z
 #brunch fajita &
 #sleep 85m
 #kill %1
-brunch fajita -j16 | tee logs.txt
+brunch fajita | tee logs.txt
 ccache -s
 #
 build_end=$(date +"%s")

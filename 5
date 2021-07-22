@@ -24,7 +24,7 @@ ccache -z
 #mka system-api-stubs-docs || echo no problem we need ccache
 #mka test-api-stubs-docs || echo no problem, we need ccache
 brunch fajita &
-sleep 100m
+sleep 85m
 kill %1
 #mka bacon -j16 | tee logs.txt
 ccache -s
